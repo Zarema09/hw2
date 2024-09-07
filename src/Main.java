@@ -1,15 +1,30 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.Random;
+        public class Main {
+            public static String permission(int age, int temperature) {
+                if (age >= 20 && age <= 45 && temperature >= -20 && temperature <= 30) {
+                    return "Можно идти гулять";
+                } else if (age < 20 && temperature >= 0 && temperature <= 28) {
+                    return "Можно идти гулять";
+                } else if (age > 45 && temperature >= -10 && temperature <= 25) {
+                    return "Можно идти гулять";
+                } else {
+                    return "Оставайтесь дома";
+                }
+            }
+        public static void main(String[] args) {
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+            for (int i = 0; i < 5; i++) {
+                int age = generateRandomAge();
+                int temperature = getRandomTemperature();
+                System.out.println("Возраст: " + age + ", Температура: " + temperature + " - " + permission(age, temperature));
+            }
         }
-    }
+public static int generateRandomAge() {
+    Random random = new Random();
+    return random.nextInt(100);
+}
+        public static int getRandomTemperature() {
+            Random random = new Random();
+            return random.nextInt(66) - 30;
+        }
 }
